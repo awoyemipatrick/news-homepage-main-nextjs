@@ -26,47 +26,47 @@ export const Navbar = () => {
       <nav className=" flex items-center justify-between">
         <div className="flex items-center font-medium justify-between">
 
-          <ul
+          <div
             className={`md:hidden fixed w-[60%] h-screen top-0 pt-[22%] left-0 rounded-r-xl z-20 bg-black dark:bg-white 
             transform transition-all duration-300 ${open ? "translate-x-0" : "-translate-x-full"}`}
           >
-            <li className=" pl-3">
-              {siteConfig.navItems.map((item) => (
-                <div key={item.href}
+            <ul className=" pl-3">
+              {siteConfig.navMenuItems.map((nav) => (
+                <li key={nav.label}
                   className="mb-4 pl-3 ">
                   <Link
-                    className="text-white dark:text-black"
-                    href={item.href}
+                    className="text-white dark:text-black "
+                    href={nav.href}
                   >
-                    {item.label}
+                    {nav.label}
                   </Link>
-                </div>
+                </li>
               ))}
-            </li>
+            </ul>
             <ThemeSwitch className="ml-3 float-end" />
-          </ul>
+          </div>
 
 
           <nav className="flex items-center">
-            <ul className="md:flex hidden items-center gap-8  ">
+            <div className="md:flex hidden items-center gap-8  ">
               <ThemeSwitch className="" />
-              <li className="flex gap-3 ">
+              <ul className="flex gap-3 ">
                 {siteConfig.navItems.map((item) => (
-                  <div key={item.href}>
+                  <li key={item.label}
+                    className=""
+                  >
                     <Link
                       className={clsx(
-                        linkStyles({ color: "foreground" }),
-                        "data-[active=true]:text-primary data-[active=true]:font-medium"
+                        "data-[active=true]:text-[#5d5f79] text-[#c5c6ce] hover:text-[#f15e50] data-[active=true]:font-medium transition-all duration-500 "
                       )}
-                      color="foreground"
                       href={item.href}
                     >
                       {item.label}
                     </Link>
-                  </div>
+                  </li>
                 ))}
-              </li>
-            </ul>
+              </ul>
+            </div>
           </nav>
 
 
@@ -75,6 +75,7 @@ export const Navbar = () => {
           <button
             className="sm:hidden z-50 w-[42] h[42] shadow-2xl dark:bg-white p-2 rounded-full"
             onClick={toggle}
+            title="toggle"
             aria-label={open ? " " : " "}
           >
 

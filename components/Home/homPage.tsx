@@ -36,6 +36,24 @@ const articles = [
   },
 ]
 
+const asides = [
+  {
+    id: 1,
+    header: ' Hydrogen VS Electric Cars',
+    paragraph: 'Will hydrogen-fueled cars ever catch up to EVs?',
+  },
+  {
+    id: 2,
+    header: ' The Downsides of AI Artistry',
+    paragraph: ' What are the possible adverse effects of on-demand AI image generation?.',
+  },
+  {
+    id: 3,
+    header: 'Is VC Funding Drying Up?',
+    paragraph: ' Private funding by VC firms is down 50% YOY. We take a look at what that means.',
+  },
+]
+
 
 export default function HomePage() {
 
@@ -43,16 +61,13 @@ export default function HomePage() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 821); // Adjust the breakpoint as per your design
+      setIsMobile(window.innerWidth <= 821);
     };
 
-    // Initial check on component mount
     handleResize();
 
-    // Event listener for viewport resizing
     window.addEventListener('resize', handleResize);
 
-    // Clean up the event listener on component unmount
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -63,73 +78,61 @@ export default function HomePage() {
         <div>
           <div>
             {isMobile ? (
-              <Image src={Web3Mobile} alt="Mobile Image" />
+              <Image src={Web3Mobile} alt="Mobile Image" priority  className=' text-f ' />
             ) : (
-              <Image src={Web3Desktop} alt="Desktop Image" />
+              <Image src={Web3Desktop} alt="Desktop Image" priority />
             )}
           </div>
-          <div className='md:flex items-center w/full'>
+          <div className='md:flex items-center w/full my-3'>
             <div className='w-1/2'>
-
-            <h1 className=' md:w-[65%] text-xl md:text-[45px] font-bold '>The Bright Future of Web 3.0?</h1>
+              <h1 className=' md:w-[65%] text-xl md:text-[45px] font-bold leading-tight '>The Bright Future of Web 3.0?</h1>
             </div>
             <span className='w-1/2'>
-              <p className=' '>We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people.
+              <p >
+                We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people.
                 But is it really fulfilling its promise?
               </p>
-              <button className='bg-[#00001a] px-4 py-1 mt-3 ' type="button">Read More</button>
+              <button
+                className='text-[#fffdfa] bg-[#f15e50] hover:bg-[#00001a] px-4 py-1 mt-3 transition-all duration-300 '
+                type="button">
+                Read More
+              </button>
             </span>
           </div>
         </div>
-        <aside className=' bg-black py-4 px-2'>
+        <aside className=' bg-black px-2 leading-7'>
           <h2 className='text-[#e9ab53] font-bold text-3xl '>New</h2>
-          <div className='leading-7'>
-            <div className=''>
-              <h3>
-                Hydrogen VS Electric Cars
-              </h3>
-              <p className=''>
-                Will hydrogen-fueled cars ever catch up to EVs?
-              </p>
-            </div>
-            <div className='w-full h-0.5 my-4 bg-white dark:bg-black'></div>
-            <div className=''>
-              <h3>
-                The Downsides of AI Artistry
-              </h3>
-              <p className=' '>
-                What are the possible adverse effects of on-demand AI image generation?
-              </p>
-            </div>
-            <div className='w-full h-0.5 my-4 bg-white dark:bg-black'></div>
-            <div className=''>
-              <h3>
-                Is VC Funding Drying Up?
-              </h3>
-              <p >
-                Private funding by VC firms is down 50% YOY. We take a look at what that means.
-              </p>
-            </div>
-            <div className='w-full h-0.5 my-4 bg-white dark:bg-black'></div>
+          <div className='mt-2'>
+            {asides.map((aside) => (
+              <div key={aside.id} className='my-[7.5%] '>
+                <h3 className=' text-[#fffdfa] font-bold hover:text-[#e9ab53] '>
+                  {aside.header}
+                </h3>
+                <p className=''>
+                  {aside.paragraph}
+                </p>
+                <div className=' bg-[#c5c6ce] h-[1px] mt-[7.5%] '></div>
+              </div>
+            ))}
           </div>
         </aside>
       </div>
 
-      <div className='grid md:grid-cols-3'>
+      <div className='grid md:grid-cols-3 dark:bg-[#fffdfa] dark:p-1 '>
         {articles.map((article) => (
           <figure key={article.id} className="flex py-2 md:p-0">
             <Image className="w-24 h-auto mx-auto" src={article.imageSrc} alt={article.imageAlt} />
-            <div className="pl-4">
+            <div className="pl-4 ">
               <figcaption className=" grid">
-                <span className=" text-xl font-bold">
+                <span className="text-[#c5c6ce] text-xl font-bold">
                   {article.number}
                 </span>
-                <Link href={''} className=" text-lg font-semibold text-[#00001a] hover:text-[#f15e50] ">
+                <Link href={''} className=" text-lg font-bold text-[#00001a] hover:text-[#f15e50] ">
                   {article.header}
                 </Link>
               </figcaption>
-              <blockquote>
-                <p className="text-[#c5c6ce] ">
+              <blockquote className=''>
+                <p className="text-[] ">
                   {article.paragraph}
                 </p>
               </blockquote>
