@@ -58,7 +58,7 @@ export default function HomePage() {
 
 
   return (
-    <section className="container mx-auto flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+    <section className="container md:mx-auto flex flex-col items-center justify-center gap-4 py-8 md:py-10 ">
       <div className=' md:flex gap-4'>
         <div>
           <div>
@@ -69,12 +69,15 @@ export default function HomePage() {
             )}
           </div>
           <div className='md:flex items-center w/full'>
-            <h1 className='w-1/2 font-bold text-[42px] '>The Bright Future of Web 3.0?</h1>
+            <div className='w-1/2'>
+
+            <h1 className=' md:w-[65%] text-xl md:text-[45px] font-bold '>The Bright Future of Web 3.0?</h1>
+            </div>
             <span className='w-1/2'>
-              <p>We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people.
+              <p className=' '>We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people.
                 But is it really fulfilling its promise?
               </p>
-              <button className='' type="button">Read More</button>
+              <button className='bg-[#00001a] px-4 py-1 mt-3 ' type="button">Read More</button>
             </span>
           </div>
         </div>
@@ -114,19 +117,19 @@ export default function HomePage() {
 
       <div className='grid md:grid-cols-3'>
         {articles.map((article) => (
-          <figure key={article.id} className="md:flex bg-slate-100 md:p-0 dark:bg-slate-800">
+          <figure key={article.id} className="flex py-2 md:p-0">
             <Image className="w-24 h-auto mx-auto" src={article.imageSrc} alt={article.imageAlt} />
             <div className="pl-4">
               <figcaption className=" grid">
                 <span className=" text-xl font-bold">
                   {article.number}
                 </span>
-                <Link href={''} className=" hover:text-red-500">
+                <Link href={''} className=" text-lg font-semibold text-[#00001a] hover:text-[#f15e50] ">
                   {article.header}
                 </Link>
               </figcaption>
               <blockquote>
-                <p className="">
+                <p className="text-[#c5c6ce] ">
                   {article.paragraph}
                 </p>
               </blockquote>

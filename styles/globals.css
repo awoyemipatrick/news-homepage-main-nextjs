@@ -4,17 +4,19 @@
 @tailwind utilities;
 
 
-h3 {
+/* h3 {
 
-  color: #fffdfa #e9ab53;
+  color: #fffdfa #f15e50;
   
 }
 
  p {
   font-size: 15px;
   color: #c5c6ce;
+  color: #00001a;
+  background: #fffdfa;
 } 
 
 span {
   color: #c5c6ce;
-}
+} */

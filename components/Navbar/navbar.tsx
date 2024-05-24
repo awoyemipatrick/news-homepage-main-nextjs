@@ -27,7 +27,7 @@ export const Navbar = () => {
         <div className="flex items-center font-medium justify-between">
 
           <ul
-            className={`md:hidden fixed w-[60%] h-1/2 top-0 pt-[22%] left-0 rounded-r-xl z-20 bg-black dark:bg-white 
+            className={`md:hidden fixed w-[60%] h-screen top-0 pt-[22%] left-0 rounded-r-xl z-20 bg-black dark:bg-white 
             transform transition-all duration-300 ${open ? "translate-x-0" : "-translate-x-full"}`}
           >
             <li className=" pl-3">
