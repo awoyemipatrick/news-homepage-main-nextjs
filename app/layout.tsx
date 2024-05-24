@@ -64,7 +64,7 @@ export default function RootLayout({
 								<Link
 									isExternal
 									className="flex items-center gap-1 text-current"
-									href="https://www.github.com"
+									href="https://www.github.com/awoyemipatrick"
 									target="_blank"
 								>
 									<p className="text-primary text-[11px] ">Awoyemi Patrick</p>
