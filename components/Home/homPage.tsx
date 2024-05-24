@@ -6,6 +6,36 @@ import Web3Mobile from '@/public/assets/images/web3Mobile.jpg'
 import RetroPcs from '@/public/assets/images/retroPcs.jpg'
 import TopLaptops from '@/public/assets/images/topLaptops.jpg'
 import GamingGrowth from '@/public/assets/images/gamingGrowth.jpg'
+import clsx from 'clsx';
+import Link from 'next/link';
+
+const articles = [
+  {
+    id: 1,
+    header: 'Reviving Retro PCs',
+    number: '01',
+    imageSrc: RetroPcs,
+    imageAlt: "Reviving Retro PCs Image.",
+    paragraph: 'What happens when old PCs are given modern upgrades?',
+  },
+  {
+    id: 2,
+    header: 'Top 10 Laptops of 2022',
+    number: '02',
+    imageSrc: TopLaptops,
+    imageAlt: "Top 10 Laptops image",
+    paragraph: ' Our best picks for various needs and budgets.',
+  },
+  {
+    id: 3,
+    header: ' The Growth of Gaming',
+    number: '03',
+    imageSrc: GamingGrowth,
+    imageAlt: "Growth of Gaming image",
+    paragraph: ' How the pandemic has sparked fresh opportunities.',
+  },
+]
+
 
 export default function HomePage() {
 
@@ -42,8 +72,9 @@ export default function HomePage() {
             <h1 className='w-1/2 font-bold text-[42px] '>The Bright Future of Web 3.0?</h1>
             <span className='w-1/2'>
               <p>We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people.
-                But is it really fulfilling its promise?</p>
-              <button type="button">Read More</button>
+                But is it really fulfilling its promise?
+              </p>
+              <button className='' type="button">Read More</button>
             </span>
           </div>
         </div>
@@ -81,53 +112,28 @@ export default function HomePage() {
         </aside>
       </div>
 
-      <div className=" grid md:grid-cols-3 mt-10 w-full border border-black">
-        <div className=' md:flex items-center justify-between mr-3 '>
-          <Image
-            src={RetroPcs}
-            alt='Retro PCs image'
-            
-          />
-          <div className='flex md:flex-col items-start justify-between w-full h-full'>
-            <span className='text-2xl font-bold '>
-              01
-            </span>
-            <h3>
-              Reviving Retro PCs
-            </h3>
-            <p>
-              What happens when old PCs are given modern upgrades?
-            </p>
-          </div>
-        </div>
-        <div className=' md:flex items-center justify-between ' >
-          <Image src={TopLaptops} alt='Top 10 Laptops images' />
-          <div className='flex md:flex-col items-start justify-around w-full h-full'>
-            <span className='text-2xl font-bold '>
-              02
-            </span>
-            <h3>
-              Top 10 Laptops of 2022
-            </h3>
-            <p>
-              Our best picks for various needs and budgets.</p>
-          </div>
-        </div>
-        <div className=' md:flex items-center justify-between '>
-          <Image src={GamingGrowth} alt='Growth of Gaming image ' />
-          <div className='flex md:flex-col items-start justify-between w-full h-full'>
-            <span className='text-2xl font-bold '>
-                03
-              </span>
-            <h3>
-              The Growth of Gaming
-            </h3>
-            <p>
-              How the pandemic has sparked fresh opportunities.</p>
-          </div>
-        </div>
+      <div className='grid md:grid-cols-3'>
+        {articles.map((article) => (
+          <figure key={article.id} className="md:flex bg-slate-100 md:p-0 dark:bg-slate-800">
+            <Image className="w-24 h-auto mx-auto" src={article.imageSrc} alt={article.imageAlt} />
+            <div className="pl-4">
+              <figcaption className=" grid">
+                <span className=" text-xl font-bold">
+                  {article.number}
+                </span>
+                <Link href={''} className=" hover:text-red-500">
+                  {article.header}
+                </Link>
+              </figcaption>
+              <blockquote>
+                <p className="">
+                  {article.paragraph}
+                </p>
+              </blockquote>
+            </div>
+          </figure>
+        ))}
       </div>
-
-    </section>
+    </section >
   );
 }

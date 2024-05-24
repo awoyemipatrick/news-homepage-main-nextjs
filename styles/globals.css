@@ -3,13 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* h3 {
+
+h3 {
 
   color: #fffdfa #e9ab53;
   
 }
 
-p {
+ p {
   font-size: 15px;
   color: #c5c6ce;
-} */
+} 
+
+span {
+  color: #c5c6ce;
+}

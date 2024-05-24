@@ -49,7 +49,7 @@ export const Navbar = () => {
 
           <nav className="flex items-center">
             <ul className="md:flex hidden items-center gap-8  ">
-              <ThemeSwitch />
+              <ThemeSwitch className=" cursor-pointer" />
               <li className="flex gap-3 ">
                 {siteConfig.navItems.map((item) => (
                   <div key={item.href}>
